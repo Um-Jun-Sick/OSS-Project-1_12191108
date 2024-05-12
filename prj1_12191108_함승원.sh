@@ -125,10 +125,7 @@ while true; do
         5)
 	read -p "Do you want to modify the format of date? (y/n) : " answer
         if [ "$answer" = "y" ]; then
-	# matches_file에서 데이터를 읽어서 1행을 제외한 나머지 행을 처리
-	# matches_file에서 데이터를 읽어서 1행을 제외하고 필요한 형식으로 날짜 변환 후 날짜와 시간만 출력
-	#tail -n +2 "$matches_file" | sed -E 's/^([A-Za-z]+) ([0-9]+) ([0-9]+) - ([0-9]+:[0-9]+)(am|pm),.*/\3\/\2\/\1 \4\5/' | head -n 10
-# matches_file에서 데이터를 읽고, 1행을 제외한 나머지 행을 처리
+	# matches_file에서 데이터를 읽고, 1행을 제외한 나머지 행을 처리
 	tail -n +2 "$matches_file" | \
 	sed -E 's/^([A-Za-z]+) ([0-9]+) ([0-9]+) - ([0-9]+:[0-9]+)(am|pm),.*/\1 \2 \3 \4\5/' | \
 	awk '{
